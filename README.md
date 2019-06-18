@@ -1,14 +1,12 @@
 This project is just [Create React App](https://github.com/facebook/create-react-app) with `Material-UI`, `React-Router`, and `ESLint` included.
 
-## Installation
-
-```bash
-yarn
-```
-
 ## Available Scripts
 
 In the project directory, you can run:
+
+### `yarn`
+
+Installs project dependencies and scripts.
 
 ### `yarn start`
 
