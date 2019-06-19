@@ -11,28 +11,28 @@ const useStyles = makeStyles({
   card: {
     minWidth: 275
   },
-  bullet: {
-    display: 'inline-block',
-    margin: '0 2px',
-    transform: 'scale(0.8)'
-  },
   title: {
     fontSize: 14
   },
   pos: {
     marginBottom: 12
+  },
+  links: {
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 })
 
-const RepCard = (props) => {
-  const classes = useStyles()
+const RepCard = props => {
   console.log('RepCard Mount: ', { props })
+  const classes = useStyles()
   const member = props.member
   if (props.senate) console.log(props.senate.senate[0])
 
   return (
     <Grid item xs={3}>
       <Card className={classes.card}>
+
         <CardContent>
           <Typography className={classes.title} color="textSecondary" gutterBottom>
             {member.party}
@@ -49,9 +49,14 @@ const RepCard = (props) => {
             {'"a benevolent smile"'}
           </Typography>
         </CardContent>
-        <CardActions>
-          <Button size="small">Learn More</Button>
+
+        <CardActions className={classes.links}>
+          <Button rel="noopener noreferrer" target="_blank" href={`https://twitter.com/${member.twitter_account}`} size="small">Twitter</Button>
+          <Button rel="noopener noreferrer" target="_blank" href={`https://facebook.com/${member.facebook_account}`} size="small">Facebook</Button>
+          <Button rel="noopener noreferrer" target="_blank" href={`https://youtube.com/${member.youtube_account}`} size="small">YouTube</Button>
+          <Button rel="noopener noreferrer" target="_blank" href={member.url} size="small">Website</Button>
         </CardActions>
+
       </Card>
     </Grid>
   )

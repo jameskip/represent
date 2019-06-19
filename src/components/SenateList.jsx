@@ -7,7 +7,7 @@ import RepCard from './RepCard'
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
-    paddingTop: 24
+    padding: 24
   },
   paper: {
     padding: theme.spacing(2),
@@ -22,10 +22,8 @@ const SenateList = props => {
   const options = { headers: { 'X-API-Key': 'JSp1AQhdSIuQQssE07bf5bsDT7HTpPDVQLAda1nx' }, mode: 'cors' }
 
   useEffect(() => {
-    console.log({ senate })
     if (!senate) {
-      fetch(
-        'https://api.propublica.org/congress/v1/116/senate/members.json', options)
+      fetch('https://api.propublica.org/congress/v1/116/senate/members.json', options)
         .then(senate => senate.json())
         .then(senateJson => setSenate({ senate: senateJson.results[0].members }))
         .catch(error => console.error(error))
