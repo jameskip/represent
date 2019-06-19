@@ -22,6 +22,7 @@ const SenateList = props => {
   const options = { headers: { 'X-API-Key': 'JSp1AQhdSIuQQssE07bf5bsDT7HTpPDVQLAda1nx' }, mode: 'cors' }
 
   useEffect(() => {
+    console.log(senate)
     if (!senate) {
       fetch('https://api.propublica.org/congress/v1/116/senate/members.json', options)
         .then(senate => senate.json())
@@ -30,11 +31,11 @@ const SenateList = props => {
     }
   })
 
-  const renderSenate = members => members.senate.map(curr => <RepCard member={curr} />)
+  const renderSenate = members => members.senate.map((curr, i) => <RepCard key={i} member={curr} />)
 
   return (
     <div className={classes.root}>
-      <Grid container spacing={3}>
+      <Grid container spacing={3} justify="center" alignItems="center">
         {senate && renderSenate(senate)}
       </Grid>
     </div>
