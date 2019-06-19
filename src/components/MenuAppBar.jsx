@@ -16,6 +16,9 @@ const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1
   },
+  bar: {
+    background: `linear-gradient(45deg, ${theme.palette.primary.main} 30%, ${theme.palette.secondary.main} 90%)`
+  },
   menuButton: {
     marginRight: theme.spacing(2)
   },
@@ -44,7 +47,7 @@ const MenuAppBar = () => {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar className={classes.bar} position="static">
         <Toolbar>
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="Menu">
             <MenuIcon />
@@ -56,7 +59,7 @@ const MenuAppBar = () => {
             />
           </FormGroup>
           <Typography variant="h6" className={classes.title}>
-            Photos
+            Represent.
           </Typography>
           {auth && (
             <div>

@@ -8,10 +8,10 @@ import './App.css'
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: '#38a3dc'
+      main: '#0d47a1'
     },
     secondary: {
-      main: '#f44336'
+      main: '#d50000'
     },
     background: {
       default: '#F6F8FA'
