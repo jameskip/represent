@@ -14,7 +14,10 @@ import Menu from '@material-ui/core/Menu'
 
 const useStyles = makeStyles(theme => ({
   root: {
-    flexGrow: 1
+    flexGrow: 1,
+    position: 'fixed',
+    width: '100%',
+    zIndex: 1100
   },
   bar: {
     background: `linear-gradient(45deg, ${theme.palette.primary.main} 30%, ${theme.palette.secondary.main} 90%)`

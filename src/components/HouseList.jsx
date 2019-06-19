@@ -9,8 +9,7 @@ const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
     padding: 24,
-    position: 'relative',
-    top: 60
+    paddingTop: 60
   },
   paper: {
     padding: theme.spacing(2),
@@ -19,7 +18,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const SenateList = props => {
+const HouseList = props => {
   const classes = useStyles()
   const [senate, setSenate] = useState()
   const options = { headers: { 'X-API-Key': 'JSp1AQhdSIuQQssE07bf5bsDT7HTpPDVQLAda1nx' }, mode: 'cors' }
@@ -27,7 +26,7 @@ const SenateList = props => {
   useEffect(() => {
     console.log(senate)
     if (!senate) {
-      fetch('https://api.propublica.org/congress/v1/116/senate/members.json', options)
+      fetch('https://api.propublica.org/congress/v1/116/house/members.json', options)
         .then(senate => senate.json())
         .then(senateJson => setSenate({ senate: senateJson.results[0].members }))
         .catch(error => console.error(error))
@@ -39,7 +38,7 @@ const SenateList = props => {
   return (
     <div className={classes.root}>
       <Typography variant="h2" gutterBottom>
-        Senate
+        House
       </Typography>
       <Grid container spacing={3} justify="center" alignItems="center">
         {senate && renderSenate(senate)}
@@ -49,4 +48,4 @@ const SenateList = props => {
   )
 }
 
-export default SenateList
+export default HouseList
