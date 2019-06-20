@@ -41,10 +41,9 @@ const useStyles = makeStyles(theme => ({
 }))
 
 const RepCard = props => {
-  console.log('RepCard Mount: ', { props })
+  // console.log('RepCard Mount: ', { props })
   const classes = useStyles()
   const member = props.member
-  if (props.senate) console.log(props.senate.senate[0])
 
   return (
     <Grid item xs>
@@ -66,9 +65,6 @@ const RepCard = props => {
           </Link>
           <Typography className={classes.pos} color="textSecondary">
             {member.title}
-          </Typography>
-          <Typography variant="body2" component="p">
-            <i>Summary...</i>
           </Typography>
         </CardContent>
 

@@ -25,7 +25,6 @@ const HouseList = props => {
   const options = { headers: { 'X-API-Key': 'JSp1AQhdSIuQQssE07bf5bsDT7HTpPDVQLAda1nx' }, mode: 'cors' }
 
   useEffect(() => {
-    console.log(house)
     if (!house) {
       fetch('https://api.propublica.org/congress/v1/116/house/members.json', options) // eslint-disable-line
         .then(house => house.json())
