@@ -1,15 +1,18 @@
-import React from 'react'
+import React from 'react' // eslint-disable-line
 import { makeStyles } from '@material-ui/core/styles'
-import Paper from '@material-ui/core/Paper'
-import Typography from '@material-ui/core/Typography'
+import Paper from '@material-ui/core/Paper' // eslint-disable-line
+import Typography from '@material-ui/core/Typography' // eslint-disable-line
 
 const useStyles = makeStyles(theme => ({
   root: {
-    padding: theme.spacing(3, 2)
+    padding: theme.spacing(3, 2),
+    flexGrow: 1,
+    position: 'relative',
+    top: 60
   }
 }))
 
-export default function PaperSheet () {
+const PaperSheet = props => {
   const classes = useStyles()
 
   return (
@@ -25,3 +28,5 @@ export default function PaperSheet () {
     </div>
   )
 }
+
+export default PaperSheet

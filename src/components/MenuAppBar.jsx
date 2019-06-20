@@ -1,18 +1,18 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { fade, makeStyles } from '@material-ui/core/styles'
-import AppBar from '@material-ui/core/AppBar'
-import Toolbar from '@material-ui/core/Toolbar'
-import Typography from '@material-ui/core/Typography'
-import IconButton from '@material-ui/core/IconButton'
-import MenuIcon from '@material-ui/icons/Menu'
-import AccountCircle from '@material-ui/icons/AccountCircle'
-import Switch from '@material-ui/core/Switch'
-import FormControlLabel from '@material-ui/core/FormControlLabel'
-import FormGroup from '@material-ui/core/FormGroup'
-import MenuItem from '@material-ui/core/MenuItem'
-import Menu from '@material-ui/core/Menu'
-import SearchIcon from '@material-ui/icons/Search'
-import InputBase from '@material-ui/core/InputBase'
+import AppBar from '@material-ui/core/AppBar' // eslint-disable-line
+import Toolbar from '@material-ui/core/Toolbar' // eslint-disable-line
+import Typography from '@material-ui/core/Typography' // eslint-disable-line
+import IconButton from '@material-ui/core/IconButton' // eslint-disable-line
+import MenuIcon from '@material-ui/icons/Menu' // eslint-disable-line
+import AccountCircle from '@material-ui/icons/AccountCircle' // eslint-disable-line
+import Switch from '@material-ui/core/Switch' // eslint-disable-line
+import FormControlLabel from '@material-ui/core/FormControlLabel' // eslint-disable-line
+import FormGroup from '@material-ui/core/FormGroup' // eslint-disable-line
+import MenuItem from '@material-ui/core/MenuItem' // eslint-disable-line
+import Menu from '@material-ui/core/Menu' // eslint-disable-line
+import SearchIcon from '@material-ui/icons/Search' // eslint-disable-line
+import InputBase from '@material-ui/core/InputBase' // eslint-disable-line
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -22,16 +22,18 @@ const useStyles = makeStyles(theme => ({
     zIndex: 1100
   },
   bar: {
-    background: `linear-gradient(45deg, ${theme.palette.primary.main} 30%, ${theme.palette.secondary.main} 90%)`
+    background: `linear-gradient(45deg, ${theme.palette.primary.main} 30%, ${theme.palette.secondary.main} 90%)`,
+    width: '100%'
   },
   menuButton: {
     marginRight: theme.spacing(2)
   },
   title: {
-    flexGrow: 1
+    marginRight: theme.spacing(2)
   },
   search: {
-    position: 'relative',
+    position: 'absolute',
+    right: '2rem',
     borderRadius: theme.shape.borderRadius,
     backgroundColor: fade(theme.palette.common.white, 0.15),
     '&:hover': {
@@ -71,35 +73,23 @@ const useStyles = makeStyles(theme => ({
 
 const MenuAppBar = () => {
   const classes = useStyles()
-  const [auth, setAuth] = React.useState(true)
-  const [anchorEl, setAnchorEl] = React.useState(null)
+  const [auth] = useState(true)
+  const [anchorEl, setAnchorEl] = useState(null)
   const open = Boolean(anchorEl)
+  const [search, setSearch] = useState('')
 
-  const handleChange = (event) => {
-    setAuth(event.target.checked)
-  }
+  const handleChange = e => setSearch(e.target.value)
+  const handleMenu = e => setAnchorEl(e.currentTarget)
+  const handleClose = () => setAnchorEl(null)
 
-  const handleMenu = (event) => {
-    setAnchorEl(event.currentTarget)
-  }
-
-  const handleClose = () => {
-    setAnchorEl(null)
-  }
+  useEffect(() => {
+    console.log(search)
+  })
 
   return (
     <div className={classes.root}>
       <AppBar className={classes.bar} position="static">
         <Toolbar>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="Menu">
-            <MenuIcon />
-          </IconButton>
-          <FormGroup>
-            <FormControlLabel
-              control={<Switch checked={auth} onChange={handleChange} aria-label="LoginSwitch" />}
-              label={auth ? 'Logout' : 'Login'}
-            />
-          </FormGroup>
           <Typography variant="h6" className={classes.title}>
             Represent.
           </Typography>
@@ -114,6 +104,7 @@ const MenuAppBar = () => {
                 input: classes.inputInput
               }}
               inputProps={{ 'aria-label': 'Search' }}
+              onChange={handleChange}
             />
           </div>
           {auth && (
@@ -132,12 +123,12 @@ const MenuAppBar = () => {
                 anchorEl={anchorEl}
                 anchorOrigin={{
                   vertical: 'top',
-                  horizontal: 'right'
+                  horizontal: 'left'
                 }}
                 keepMounted
                 transformOrigin={{
                   vertical: 'top',
-                  horizontal: 'right'
+                  horizontal: 'left'
                 }}
                 open={open}
                 onClose={handleClose}

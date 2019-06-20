@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react' // eslint-disable-line
 import { makeStyles } from '@material-ui/core/styles'
-import Typography from '@material-ui/core/Typography'
-import Grid from '@material-ui/core/Grid'
+import Typography from '@material-ui/core/Typography' // eslint-disable-line
+import Grid from '@material-ui/core/Grid' // eslint-disable-line
 
-import RepCard from './RepCard'
+import RepCard from './RepCard' // eslint-disable-line
 
 const useStyles = makeStyles(theme => ({
   root: {
+    padding: theme.spacing(3, 2),
     flexGrow: 1,
-    padding: 24,
     position: 'relative',
     top: 60
   },
@@ -27,7 +27,7 @@ const SenateList = props => {
   useEffect(() => {
     console.log(senate)
     if (!senate) {
-      fetch('https://api.propublica.org/congress/v1/116/senate/members.json', options)
+      fetch('https://api.propublica.org/congress/v1/116/senate/members.json', options) // eslint-disable-line
         .then(senate => senate.json())
         .then(senateJson => setSenate({ senate: senateJson.results[0].members }))
         .catch(error => console.error(error))
