@@ -32,8 +32,8 @@ const useStyles = makeStyles(theme => ({
     marginRight: theme.spacing(2)
   },
   search: {
-    position: 'absolute',
-    right: '2rem',
+    position: 'relative',
+    right: '.5rem',
     borderRadius: theme.shape.borderRadius,
     backgroundColor: fade(theme.palette.common.white, 0.15),
     '&:hover': {
@@ -108,7 +108,7 @@ const MenuAppBar = () => {
             />
           </div>
           {auth && (
-            <div>
+            <div className={classes.icon}>
               <IconButton
                 aria-label="Account of current user"
                 aria-controls="menu-appbar"
