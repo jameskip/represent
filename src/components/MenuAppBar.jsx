@@ -73,14 +73,9 @@ const useStyles = makeStyles(theme => ({
 
 const MenuAppBar = () => {
   const classes = useStyles()
-  const [auth] = useState(true)
-  const [anchorEl, setAnchorEl] = useState(null)
-  const open = Boolean(anchorEl)
   const [search, setSearch] = useState('')
 
   const handleChange = e => setSearch(e.target.value)
-  const handleMenu = e => setAnchorEl(e.currentTarget)
-  const handleClose = () => setAnchorEl(null)
 
   useEffect(() => {
     console.log(search)
@@ -99,45 +94,11 @@ const MenuAppBar = () => {
             </div>
             <InputBase
               placeholder="Search…"
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput
-              }}
+              classes={{ root: classes.inputRoot, input: classes.inputInput }}
               inputProps={{ 'aria-label': 'Search' }}
               onChange={handleChange}
             />
           </div>
-          {auth && (
-            <div className={classes.icon}>
-              <IconButton
-                aria-label="Account of current user"
-                aria-controls="menu-appbar"
-                aria-haspopup="true"
-                onClick={handleMenu}
-                color="inherit"
-              >
-                <AccountCircle />
-              </IconButton>
-              <Menu
-                id="menu-appbar"
-                anchorEl={anchorEl}
-                anchorOrigin={{
-                  vertical: 'top',
-                  horizontal: 'left'
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'left'
-                }}
-                open={open}
-                onClose={handleClose}
-              >
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
-                <MenuItem onClick={handleClose}>My account</MenuItem>
-              </Menu>
-            </div>
-          )}
         </Toolbar>
       </AppBar>
     </div>
