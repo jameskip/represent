@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react' // eslint-disable-line
 import { makeStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography' // eslint-disable-line
 import Grid from '@material-ui/core/Grid' // eslint-disable-line
+import CircularProgress from '@material-ui/core/CircularProgress' // eslint-disable-line
 
 import RepCard from './RepCard' // eslint-disable-line
 
@@ -40,6 +41,7 @@ const SenateList = props => {
       <Typography variant="h2" gutterBottom>
         Senate
       </Typography>
+      {!senate && <CircularProgress />}
       <Grid container spacing={3} justify="center" alignItems="center">
         {senate && renderSenate(senate)}
       </Grid>

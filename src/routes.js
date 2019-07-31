@@ -18,7 +18,7 @@ const HomeRoute = ({ component: Component, ...rest }) => (
 export default props => (
   <HashRouter>
     <Switch>
-      <Route path='/' render={HomeRoute} />
+      <Route exact path='/' render={HomeRoute} />
       <Route path='/profile' component={Profile} />
     </Switch>
   </HashRouter>

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react' // eslint-disable-line
 import { makeStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography' // eslint-disable-line
 import Grid from '@material-ui/core/Grid' // eslint-disable-line
+import CircularProgress from '@material-ui/core/CircularProgress' // eslint-disable-line
 
 import RepCard from './RepCard' // eslint-disable-line
 
@@ -33,15 +34,16 @@ const HouseList = props => {
     }
   })
 
-  const renderhouse = members => members.house.map((curr, i) => <RepCard key={i} member={curr} />)
+  const renderHouse = members => members.house.map((curr, i) => <RepCard key={i} member={curr} />)
 
   return (
     <div className={classes.root}>
       <Typography variant="h2" gutterBottom>
         House
       </Typography>
+      {!house && <CircularProgress />}
       <Grid container spacing={3} justify="center" alignItems="center">
-        {house && renderhouse(house)}
+        {house && renderHouse(house)}
       </Grid>
     </div>
 
