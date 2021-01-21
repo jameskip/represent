@@ -4,24 +4,27 @@ import SenateList from './SenateList'
 
 const CardBoard = props => {
   const [senate, setSenate] = useState()
-  const [house, sethouse] = useState()
+  const [house, setHouse] = useState()
   const houseUrl = 'https://api.propublica.org/congress/v1/117/house/members.json'
   const senateUrl = 'https://api.propublica.org/congress/v1/117/senate/members.json'
   const options = { headers: { 'X-API-Key': 'JSp1AQhdSIuQQssE07bf5bsDT7HTpPDVQLAda1nx' }, mode: 'cors' }
 
+  const fetchCongress = async (url, chamber) => {
+    if (chamber === 'senate' && !senate) {
+      const senateMembers = await fetch(url, options) // eslint-disable-line
+      const senateMembersJson = await senateMembers.json()
+      await setSenate({ senate: senateMembersJson.results[0].members })
+    }
+    if (chamber === 'house' && !house) {
+      const houseMembers = await fetch(url, options) // eslint-disable-line
+      const houseMembersJson = await houseMembers.json()
+      await setHouse({ house: houseMembersJson.results[0].members })
+    }
+  }
+
   useEffect(() => {
-    if (!house) {
-      fetch(houseUrl, options) // eslint-disable-line
-        .then(house => house.json())
-        .then(houseJson => sethouse({ house: houseJson.results[0].members }))
-        .catch(error => console.error(error))
-    }
-    if (!senate) {
-      fetch(senateUrl, options) // eslint-disable-line
-        .then(senate => senate.json())
-        .then(senateJson => setSenate({ senate: senateJson.results[0].members }))
-        .catch(error => console.error(error))
-    }
+    fetchCongress(senateUrl, 'senate')
+    fetchCongress(houseUrl, 'house')
   })
 
   return (
