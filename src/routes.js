@@ -16,7 +16,7 @@ const HomeRoute = ({ component: Component, ...rest }) => (
   />
 );
 
-export default (props) => (
+const homeExport =(props) => (
   <HashRouter>
     <Switch>
       <Route exact path="/" render={HomeRoute} />
@@ -24,3 +24,5 @@ export default (props) => (
     </Switch>
   </HashRouter>
 );
+
+export default homeExport
