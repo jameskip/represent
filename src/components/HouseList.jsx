@@ -32,7 +32,9 @@ const HouseList = (props) => {
       <Typography variant="h2" gutterBottom>
         House
       </Typography>
+
       {!housePayload && <CircularProgress />}
+
       <Grid container spacing={3} justify="center" alignItems="center">
         {housePayload && renderHouse(housePayload)}
       </Grid>

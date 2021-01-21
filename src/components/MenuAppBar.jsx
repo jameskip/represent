@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { fade, makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -63,15 +63,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const MenuAppBar = () => {
+const MenuAppBar = (props) => {
   const classes = useStyles();
-  const [search, setSearch] = useState("");
-
-  const handleChange = (e) => setSearch(e.target.value);
-
-  useEffect(() => {
-    console.log(search);
-  });
 
   return (
     <div className={classes.root}>
@@ -80,6 +73,7 @@ const MenuAppBar = () => {
           <Typography variant="h6" className={classes.title}>
             Represent.
           </Typography>
+
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
@@ -88,7 +82,7 @@ const MenuAppBar = () => {
               placeholder="Search…"
               classes={{ root: classes.inputRoot, input: classes.inputInput }}
               inputProps={{ "aria-label": "Search" }}
-              onChange={handleChange}
+              onChange={(e) => props.onChange(e)}
             />
           </div>
         </Toolbar>

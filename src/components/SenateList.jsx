@@ -24,15 +24,27 @@ const SenateList = (props) => {
   const classes = useStyles();
   const senatePayload = props.filteredSenateList;
 
-  const renderSenate = (members) =>
-    members.senate.map((curr, i) => <RepCard key={i} member={curr} />);
+  const renderSenate = (members) => {
+    console.log(members.senate);
+    return members.senate
+      .filter((member) => {
+        const { first_name, last_name } = member;
+        const fullName = `${first_name} ${last_name}`.toLowerCase();
+        return fullName.includes(props.nameQuery);
+      })
+      .map((curr, i) => {
+        return <RepCard key={curr.id} member={curr} />;
+      });
+  };
 
   return (
     <div className={classes.root}>
       <Typography variant="h2" gutterBottom>
         Senate
       </Typography>
+
       {!senatePayload && <CircularProgress />}
+
       <Grid container spacing={3} justify="center" alignItems="center">
         {senatePayload && renderSenate(senatePayload)}
       </Grid>
