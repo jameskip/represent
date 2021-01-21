@@ -1,10 +1,10 @@
-import React from 'react' // eslint-disable-line
+import React from 'react' 
 import { makeStyles } from '@material-ui/core/styles'
-import Typography from '@material-ui/core/Typography' // eslint-disable-line
-import Grid from '@material-ui/core/Grid' // eslint-disable-line
-import CircularProgress from '@material-ui/core/CircularProgress' // eslint-disable-line
+import Typography from '@material-ui/core/Typography' 
+import Grid from '@material-ui/core/Grid' 
+import CircularProgress from '@material-ui/core/CircularProgress' 
 
-import RepCard from './RepCard' // eslint-disable-line
+import RepCard from './RepCard' 
 
 const useStyles = makeStyles(theme => ({
   root: {

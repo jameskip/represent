@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from 'react'
 import { fade, makeStyles } from '@material-ui/core/styles'
-import AppBar from '@material-ui/core/AppBar' // eslint-disable-line
-import Toolbar from '@material-ui/core/Toolbar' // eslint-disable-line
-import Typography from '@material-ui/core/Typography' // eslint-disable-line
-import IconButton from '@material-ui/core/IconButton' // eslint-disable-line
-import MenuIcon from '@material-ui/icons/Menu' // eslint-disable-line
-import AccountCircle from '@material-ui/icons/AccountCircle' // eslint-disable-line
-import Switch from '@material-ui/core/Switch' // eslint-disable-line
-import FormControlLabel from '@material-ui/core/FormControlLabel' // eslint-disable-line
-import FormGroup from '@material-ui/core/FormGroup' // eslint-disable-line
-import MenuItem from '@material-ui/core/MenuItem' // eslint-disable-line
-import Menu from '@material-ui/core/Menu' // eslint-disable-line
-import SearchIcon from '@material-ui/icons/Search' // eslint-disable-line
-import InputBase from '@material-ui/core/InputBase' // eslint-disable-line
+import AppBar from '@material-ui/core/AppBar' 
+import Toolbar from '@material-ui/core/Toolbar' 
+import Typography from '@material-ui/core/Typography' 
+import IconButton from '@material-ui/core/IconButton' 
+import MenuIcon from '@material-ui/icons/Menu' 
+import AccountCircle from '@material-ui/icons/AccountCircle' 
+import Switch from '@material-ui/core/Switch' 
+import FormControlLabel from '@material-ui/core/FormControlLabel' 
+import FormGroup from '@material-ui/core/FormGroup' 
+import MenuItem from '@material-ui/core/MenuItem' 
+import Menu from '@material-ui/core/Menu' 
+import SearchIcon from '@material-ui/icons/Search' 
+import InputBase from '@material-ui/core/InputBase' 
 
 const useStyles = makeStyles(theme => ({
   root: {

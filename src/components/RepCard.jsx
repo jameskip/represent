@@ -1,14 +1,14 @@
-import React from 'react' // eslint-disable-line
-import { Link } from 'react-router-dom' // eslint-disable-line
+import React from 'react' 
+import { Link } from 'react-router-dom' 
 import { makeStyles } from '@material-ui/core/styles'
-import Card from '@material-ui/core/Card' // eslint-disable-line
-import CardActions from '@material-ui/core/CardActions' // eslint-disable-line
-import CardContent from '@material-ui/core/CardContent' // eslint-disable-line
-import Button from '@material-ui/core/Button' // eslint-disable-line
-import Typography from '@material-ui/core/Typography' // eslint-disable-line
-import Grid from '@material-ui/core/Grid' // eslint-disable-line
-import Avatar from '@material-ui/core/Avatar' // eslint-disable-line
-import AccountCircle from '@material-ui/icons/AccountCircle' // eslint-disable-line
+import Card from '@material-ui/core/Card' 
+import CardActions from '@material-ui/core/CardActions' 
+import CardContent from '@material-ui/core/CardContent' 
+import Button from '@material-ui/core/Button' 
+import Typography from '@material-ui/core/Typography' 
+import Grid from '@material-ui/core/Grid' 
+import Avatar from '@material-ui/core/Avatar' 
+import AccountCircle from '@material-ui/icons/AccountCircle' 
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -41,7 +41,6 @@ const useStyles = makeStyles(theme => ({
 }))
 
 const RepCard = props => {
-  // console.log('RepCard Mount: ', { props })
   const classes = useStyles()
   const member = props.member
 

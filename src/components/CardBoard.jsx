@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react' // eslint-disable-line
+import React, { useEffect, useState } from 'react'
 import HouseList from './HouseList'
 import SenateList from './SenateList'
 
@@ -11,12 +11,12 @@ const CardBoard = props => {
 
   const fetchCongress = async (url, chamber) => {
     if (chamber === 'senate' && !senate) {
-      const senateMembers = await fetch(url, options) // eslint-disable-line
+      const senateMembers = await fetch(url, options)
       const senateMembersJson = await senateMembers.json()
       await setSenate({ senate: senateMembersJson.results[0].members })
     }
     if (chamber === 'house' && !house) {
-      const houseMembers = await fetch(url, options) // eslint-disable-line
+      const houseMembers = await fetch(url, options)
       const houseMembersJson = await houseMembers.json()
       await setHouse({ house: houseMembersJson.results[0].members })
     }
