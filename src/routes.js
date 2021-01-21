@@ -1,25 +1,26 @@
-import React from 'react'
-import { Route, HashRouter, Switch } from 'react-router-dom'
-import MenuAppBar from './components/MenuAppBar'
-import SenateList from './components/SenateList'
-import HouseList from './components/HouseList'
-import Profile from './components/Profile'
+import React from "react";
+import { Route, HashRouter, Switch } from "react-router-dom";
+import MenuAppBar from "./components/MenuAppBar";
+import CardBoard from "./components/CardBoard";
+import Profile from "./components/Profile";
 
 const HomeRoute = ({ component: Component, ...rest }) => (
-  <Route {...rest} render={routeProps => (
-    <>
-      <MenuAppBar {...routeProps} />
-      <SenateList {...routeProps} />
-      <HouseList {...routeProps} />
-    </>
-  )}/>
-)
+  <Route
+    {...rest}
+    render={(routeProps) => (
+      <>
+        <MenuAppBar {...routeProps} />
+        <CardBoard {...routeProps} />
+      </>
+    )}
+  />
+);
 
-export default props => (
+export default (props) => (
   <HashRouter>
     <Switch>
-      <Route exact path='/' render={HomeRoute} />
-      <Route path='/profile' component={Profile} />
+      <Route exact path="/" render={HomeRoute} />
+      <Route path="/profile" component={Profile} />
     </Switch>
   </HashRouter>
-)
+);
