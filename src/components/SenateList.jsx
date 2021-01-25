@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
@@ -21,11 +21,29 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const SenateList = (props) => {
+  const [senate, setSenate] = useState();
   const classes = useStyles();
-  const senatePayload = props.filteredSenateList;
+  // const senatePayload = props.filteredSenateList;
+  const senateUrl =
+    "https://api.propublica.org/congress/v1/117/senate/members.json";
+  const options = {
+    headers: { "X-API-Key": "JSp1AQhdSIuQQssE07bf5bsDT7HTpPDVQLAda1nx" },
+    mode: "cors",
+  };
+
+  useEffect(() => {
+    const pullSenate = async () => {
+      if (!senate) {
+        const senateMembers = await fetch(senateUrl, options);
+        const senateMembersJson = await senateMembers.json();
+        await setSenate({ senate: senateMembersJson.results[0].members });
+      }
+    };
+    pullSenate();
+  });
 
   const renderSenate = (members) => {
-    console.log(members.senate);
+    console.log("SENATE RENDERED");
     return members.senate
       .filter((member) => {
         const { first_name, last_name } = member;
@@ -43,10 +61,10 @@ const SenateList = (props) => {
         Senate
       </Typography>
 
-      {!senatePayload && <CircularProgress />}
+      {!senate && <CircularProgress />}
 
       <Grid container spacing={3} justify="center" alignItems="center">
-        {senatePayload && renderSenate(senatePayload)}
+        {senate && renderSenate(senate)}
       </Grid>
     </div>
   );

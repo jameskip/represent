@@ -82,7 +82,10 @@ const MenuAppBar = (props) => {
               placeholder="Search…"
               classes={{ root: classes.inputRoot, input: classes.inputInput }}
               inputProps={{ "aria-label": "Search" }}
-              onChange={(e) => props.onChange(e)}
+              onChange={(e) => {
+                e.persist();
+                props.changeFunction(e);
+              }}
             />
           </div>
         </Toolbar>

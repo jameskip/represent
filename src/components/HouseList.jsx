@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
@@ -21,11 +21,38 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const HouseList = (props) => {
+  const [house, setHouse] = useState();
   const classes = useStyles();
-  const housePayload = props.filteredHouseList;
+  const houseUrl =
+    "https://api.propublica.org/congress/v1/117/house/members.json";
+  const options = {
+    headers: { "X-API-Key": "JSp1AQhdSIuQQssE07bf5bsDT7HTpPDVQLAda1nx" },
+    mode: "cors",
+  };
 
-  const renderHouse = (members) =>
-    members.house.map((curr, i) => <RepCard key={i} member={curr} />);
+  useEffect(() => {
+    const pullHouse = async () => {
+      if (!house) {
+        const houseMembers = await fetch(houseUrl, options);
+        const houseMembersJson = await houseMembers.json();
+        await setHouse({ house: houseMembersJson.results[0].members });
+      }
+    };
+    pullHouse();
+  });
+
+  const renderHouse = (members) => {
+    console.log("HOUSE RENDERED");
+    return members.house
+      .filter((member) => {
+        const { first_name, last_name } = member;
+        const fullName = `${first_name} ${last_name}`.toLowerCase();
+        return fullName.includes(props.nameQuery);
+      })
+      .map((curr, i) => {
+        return <RepCard key={curr.id} member={curr} />;
+      });
+  };
 
   return (
     <div className={classes.root}>
@@ -33,10 +60,10 @@ const HouseList = (props) => {
         House
       </Typography>
 
-      {!housePayload && <CircularProgress />}
+      {!house && <CircularProgress />}
 
       <Grid container spacing={3} justify="center" alignItems="center">
-        {housePayload && renderHouse(housePayload)}
+        {house && renderHouse(house)}
       </Grid>
     </div>
   );
