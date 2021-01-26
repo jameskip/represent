@@ -44,7 +44,7 @@ const SenateList = (props) => {
 
   const renderSenate = (members) => {
     console.log("SENATE RENDERED");
-    return members.senate
+    const filteredList = members.senate
       .filter((member) => {
         const { first_name, last_name } = member;
         const fullName = `${first_name} ${last_name}`.toLowerCase();
@@ -53,6 +53,12 @@ const SenateList = (props) => {
       .map((curr, i) => {
         return <RepCard key={curr.id} member={curr} />;
       });
+
+    if (filteredList.length === 0) {
+      return <div>No representatives found.</div>;
+    }
+
+    return filteredList;
   };
 
   return (

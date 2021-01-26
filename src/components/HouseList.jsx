@@ -43,7 +43,7 @@ const HouseList = (props) => {
 
   const renderHouse = (members) => {
     console.log("HOUSE RENDERED");
-    return members.house
+    const filteredList = members.house
       .filter((member) => {
         const { first_name, last_name } = member;
         const fullName = `${first_name} ${last_name}`.toLowerCase();
@@ -52,6 +52,12 @@ const HouseList = (props) => {
       .map((curr, i) => {
         return <RepCard key={curr.id} member={curr} />;
       });
+
+    if (filteredList.length === 0) {
+      return <div>No representatives found.</div>;
+    }
+
+    return filteredList;
   };
 
   return (
