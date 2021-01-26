@@ -53,7 +53,17 @@ const RepCard = (props) => {
             color="textSecondary"
             gutterBottom
           >
-            {member.state} {member.party}
+            {member.state}
+            {"  "}
+            {member.party === "R" ? (
+              <span style={{ color: "red", fontWeight: "bold" }}>
+                {member.party}
+              </span>
+            ) : (
+              <span style={{ color: "blue", fontWeight: "bold" }}>
+                {member.party}
+              </span>
+            )}
           </Typography>
           <Link className={classes.links} to="/profile">
             <Grid container justify="center" alignItems="center">
