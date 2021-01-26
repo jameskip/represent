@@ -1,3 +1,5 @@
+![CodeQL](https://github.com/jameskip/represent/workflows/CodeQL/badge.svg)
+
 This project is just [Create React App](https://github.com/facebook/create-react-app) with `Material-UI`, `React-Router`, and `ESLint` included.
 
 ## Available Scripts
