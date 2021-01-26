@@ -5771,7 +5771,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"es-abstract@npm:^1.17.0-next.1, es-abstract@npm:^1.17.2":
+"es-abstract@npm:^1.17.2":
   version: 1.17.7
   resolution: "es-abstract@npm:1.17.7"
   dependencies:
@@ -6999,7 +6999,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"get-intrinsic@npm:^1.0.1, get-intrinsic@npm:^1.0.2":
+"get-intrinsic@npm:^1.0.1, get-intrinsic@npm:^1.0.2, get-intrinsic@npm:^1.1.0":
   version: 1.1.0
   resolution: "get-intrinsic@npm:1.1.0"
   dependencies:
@@ -7835,13 +7835,13 @@ fsevents@^1.2.7:
   linkType: hard
 
 "internal-slot@npm:^1.0.2":
-  version: 1.0.2
-  resolution: "internal-slot@npm:1.0.2"
+  version: 1.0.3
+  resolution: "internal-slot@npm:1.0.3"
   dependencies:
-    es-abstract: ^1.17.0-next.1
+    get-intrinsic: ^1.1.0
     has: ^1.0.3
-    side-channel: ^1.0.2
-  checksum: 02b2bcc612fbbaa5de71acec354a7bb50d8b3b2d2df775b6df61ea41419f92b69e0562f80125d7fa3667c9fb485cc88726f8a181fb544d880c79564f0f7d7d1e
+    side-channel: ^1.0.4
+  checksum: 2465f832aa80c3740f2cfc5c75e74c727b4a45b8d80e295bb66dbb59435de536b9951b7f4d1a8075d5bb90054bd30ff22a37356a247fba3608987c7765569345
   languageName: node
   linkType: hard
 
@@ -13294,7 +13294,7 @@ resolve@1.18.1:
   languageName: node
   linkType: hard
 
-"side-channel@npm:^1.0.2, side-channel@npm:^1.0.3":
+"side-channel@npm:^1.0.3, side-channel@npm:^1.0.4":
   version: 1.0.4
   resolution: "side-channel@npm:1.0.4"
   dependencies:
