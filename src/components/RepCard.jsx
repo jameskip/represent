@@ -65,16 +65,19 @@ const RepCard = (props) => {
               </span>
             )}
           </Typography>
+
           <Link className={classes.links} to="/profile">
             <Grid container justify="center" alignItems="center">
               <Avatar className={classes.avatar}>
                 <AccountCircle />
               </Avatar>
             </Grid>
+
             <Typography variant="h5" component="h2">
               {member.first_name} {member.last_name}
             </Typography>
           </Link>
+
           <Typography className={classes.pos} color="textSecondary">
             {member.title}
           </Typography>
