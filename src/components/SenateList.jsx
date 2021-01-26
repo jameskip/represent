@@ -54,6 +54,8 @@ const SenateList = (props) => {
         return <RepCard key={curr.id} member={curr} />;
       });
 
+    console.log(filteredList);
+
     if (filteredList.length === 0) {
       return <div>No representatives found.</div>;
     }

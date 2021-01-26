@@ -4,7 +4,7 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import SearchIcon from "@material-ui/icons/Search";
-import InputBase from "@material-ui/core/InputBase";
+import Input from "@material-ui/core/Input";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -78,14 +78,11 @@ const MenuAppBar = (props) => {
             <div className={classes.searchIcon}>
               <SearchIcon />
             </div>
-            <InputBase
+            <Input
               placeholder="Search…"
               classes={{ root: classes.inputRoot, input: classes.inputInput }}
               inputProps={{ "aria-label": "Search" }}
-              onChange={(e) => {
-                e.persist();
-                props.changeFunction(e);
-              }}
+              onChange={props.changeFunction}
             />
           </div>
         </Toolbar>

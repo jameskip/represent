@@ -8,9 +8,9 @@ import debounce from "../utilities/debounce";
 const CardBoard = (props) => {
   const [search, setSearch] = useState("");
 
-  const handleChange = debounce((e) => {
-    e.stopPropagation();
-    setSearch(e.target.value);
+  const handleChange = debounce((event) => {
+    console.log(event.target.value);
+    setSearch(event.target.value);
   }, 200);
 
   return (
